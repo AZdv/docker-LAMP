@@ -1,7 +1,7 @@
 FROM greyltc/archlinux
 MAINTAINER Grey Christoforo <grey@christoforo.net>
 
-# install apache
+# install apachem
 RUN pacman -S --noconfirm --needed apache
 RUN sed -i '$a ServerName ${HOSTNAME}' /etc/httpd/conf/httpd.conf
 
@@ -63,6 +63,7 @@ RUN rm /usr/bin/systemd-tmpfiles
 RUN pacman -S --noconfirm --needed perl-dbd-mysql
 RUN sed -i 's,;extension=pdo_mysql.so,extension=pdo_mysql.so,g' /etc/php/php.ini
 RUN sed -i 's,;extension=mysql.so,extension=mysql.so,g' /etc/php/php.ini
+RUN sed -i 's,;extension=mysqli.so,extension=mysqli.so,g' /etc/php/php.ini
 RUN mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 #RUN sed -i 's,mysql.trace_mode = Off,mysql.trace_mode = On,g' /etc/php/php.ini
 #RUN sed -i 's,mysql.default_host =,mysql.default_host = localhost,g' /etc/php/php.ini
