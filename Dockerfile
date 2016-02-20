@@ -109,6 +109,7 @@ ENV EMAIL user@example.com
 ENV START_APACHE true
 ENV START_MYSQL true
 ENV ENABLE_DAV false
+ENV TERM xterm
 
 # start servers
 ADD startServers.sh /usr/sbin/startServers.sh
